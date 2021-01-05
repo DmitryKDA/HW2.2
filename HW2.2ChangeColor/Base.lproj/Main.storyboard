@@ -53,7 +53,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XLw-af-b5e">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XLw-af-b5e">
                                 <rect key="frame" x="75" y="271" width="32" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="ew2-uG-tOV"/>
@@ -63,7 +63,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ysy-Sw-gbj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ysy-Sw-gbj">
                                 <rect key="frame" x="75" y="320" width="32" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="HII-T5-ZnF"/>
@@ -73,7 +73,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZqK-JG-aS7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZqK-JG-aS7">
                                 <rect key="frame" x="75" y="369" width="32" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="hSa-JS-fEV"/>
@@ -86,56 +86,50 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Kdi-pL-E9h">
                                 <rect key="frame" x="115" y="271" width="226" height="31"/>
                                 <connections>
-                                    <action selector="redSliderChange" destination="BYZ-38-t0r" eventType="valueChanged" id="psX-eZ-zLB"/>
+                                    <action selector="SliderChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="WrK-zZ-sIF"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="A5v-Ip-L7L">
                                 <rect key="frame" x="115" y="320" width="226" height="31"/>
                                 <connections>
-                                    <action selector="greenSliderChange" destination="BYZ-38-t0r" eventType="valueChanged" id="teY-B5-NKC"/>
+                                    <action selector="SliderChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="FpS-no-jjm"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xmZ-mP-nPe">
                                 <rect key="frame" x="115" y="369" width="226" height="31"/>
                                 <connections>
-                                    <action selector="blueSliderChange" destination="BYZ-38-t0r" eventType="valueChanged" id="hDw-3f-ZtU"/>
+                                    <action selector="SliderChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="MHY-r1-wZ8"/>
                                 </connections>
                             </slider>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xGo-Xo-ave">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xGo-Xo-ave">
                                 <rect key="frame" x="349" y="271" width="45" height="34"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="E7q-U4-n7M"/>
                                     <constraint firstAttribute="width" constant="45" id="fFo-f6-LkW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="redTextFieldChanged" destination="BYZ-38-t0r" eventType="editingDidEnd" id="0zK-Hp-FAW"/>
-                                </connections>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6t-LS-gaD">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6t-LS-gaD">
                                 <rect key="frame" x="349" y="320" width="45" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="6yv-ze-Mbe"/>
                                     <constraint firstAttribute="height" constant="34" id="GmD-sT-WGC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="greenTextFieldChanged" destination="BYZ-38-t0r" eventType="editingDidEnd" id="tnI-cN-9yC"/>
-                                </connections>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="np1-Wh-8GB">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="np1-Wh-8GB">
                                 <rect key="frame" x="349" y="369" width="45" height="34"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="uda-3l-ApK"/>
                                     <constraint firstAttribute="height" constant="34" id="x4c-QC-6HX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="blueTextFieldChanged" destination="BYZ-38-t0r" eventType="editingDidEnd" id="qgd-iF-5SJ"/>
-                                </connections>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bright:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gbt-4s-41d">
                                 <rect key="frame" x="20" y="418" width="51" height="34"/>
@@ -147,7 +141,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Wpb-Rs-sUf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Wpb-Rs-sUf">
                                 <rect key="frame" x="75" y="418" width="32" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Byq-dy-3ta"/>
@@ -160,20 +154,17 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Kda-3g-ouX">
                                 <rect key="frame" x="115" y="418" width="226" height="31"/>
                                 <connections>
-                                    <action selector="brightnessSliderChange" destination="BYZ-38-t0r" eventType="valueChanged" id="gS0-fH-R22"/>
+                                    <action selector="SliderChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="5j0-ES-kDH"/>
                                 </connections>
                             </slider>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWz-i3-yXj">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWz-i3-yXj">
                                 <rect key="frame" x="349" y="418" width="45" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="MmK-Az-flq"/>
                                     <constraint firstAttribute="height" constant="34" id="MwE-Ao-ope"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="brightnessTextFieldChanged" destination="BYZ-38-t0r" eventType="editingDidEnd" id="5Pg-Nf-XTW"/>
-                                </connections>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -244,6 +235,15 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

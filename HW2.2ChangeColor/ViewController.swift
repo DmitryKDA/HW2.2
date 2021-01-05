@@ -33,8 +33,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewController()
+
+    }
+    
+    private func setupViewController (){
         view.backgroundColor = .secondarySystemBackground
         colorView.layer.cornerRadius = colorView.frame.height/10
+        colorView.backgroundColor = .white
         
         redColorSlider.maximumValue = 1
         redColorSlider.minimumValue = 0
@@ -45,26 +51,18 @@ class ViewController: UIViewController {
         greenColorSlider.minimumValue = 0
         greenColorSlider.value = 1
         greenColorSlider.minimumTrackTintColor = .green
-
+        
         blueColorSlider.maximumValue = 1
         blueColorSlider.minimumValue = 0
         blueColorSlider.value = 1
-        blueColorSlider.minimumTrackTintColor = .blue
         
         brightnessSlider.maximumValue = 1
         brightnessSlider.minimumValue = 0
         brightnessSlider.value = 1
         brightnessSlider.minimumTrackTintColor = .white
-
-        colorView.backgroundColor = .white
-        
-        redTextField.layer.cornerRadius = redTextField.frame.height/10
-        greenTextField.layer.cornerRadius = greenTextField.frame.height/10
-        blueTextField.layer.cornerRadius = blueTextField.frame.height/10
-        brightnessTextField.layer.cornerRadius = brightnessTextField.frame.height/10
     }
     
-    func changeColorBySliders (){
+    private func changeColor (){
         colorView.backgroundColor = UIColor(
             displayP3Red: CGFloat(redColorSlider.value),
             green: CGFloat(greenColorSlider.value),
@@ -73,53 +71,35 @@ class ViewController: UIViewController {
             )
     }
     
-    @IBAction func redSliderChange() {
-        redColor = (redColorSlider.value*100).rounded(.toNearestOrEven)/100
-        guard let redColor = redColor else {
-            return
-        }
-        redLabel.text = String(redColor)
-        redTextField.text = String(redColor)
-        changeColorBySliders()
-    }
-    @IBAction func greenSliderChange() {
-        greenColor = (greenColorSlider.value*100).rounded(.toNearestOrEven)/100
-        guard let greenColor = greenColor else {
-            return
-        }
-        greenLabel.text = String(greenColor)
-        greenTextField.text = String(greenColor)
-        changeColorBySliders()
-    }
-    @IBAction func blueSliderChange() {
-        blueColor = (blueColorSlider.value*100).rounded(.toNearestOrEven)/100
-        guard let blueColor = blueColor else {
-            return
-        }
-        blueLabel.text = String(blueColor)
-        blueTextField.text = String(blueColor)
-        changeColorBySliders()
-
-    }
-    @IBAction func brightnessSliderChange() {
-        brightness = (brightnessSlider.value*100).rounded(.toNearestOrEven)/100
-        guard let brightness = brightness else {
-            return
-        }
-        brightnessLabel.text = String(brightness)
-        brightnessTextField.text = String(brightness)
-        changeColorBySliders()
-    }
-    @IBAction func redTextFieldChanged() {
-    }
-    @IBAction func greenTextFieldChanged() {
-    }
-    @IBAction func blueTextFieldChanged() {
-    }
-    @IBAction func brightnessTextFieldChanged() {
+    private func roundByTwo (slider: UISlider) -> Float {
+        return (slider.value*100).rounded(.toNearestOrEven)/100
     }
     
+    private func changeValueForLables (){
+        redLabel.text = String(roundByTwo(slider: redColorSlider))
+        greenLabel.text = String(roundByTwo(slider: greenColorSlider))
+        blueLabel.text = String(roundByTwo(slider: blueColorSlider))
+        brightnessLabel.text = String(roundByTwo(slider: brightnessSlider))
+    }
     
+    private func changeValueForTextFields (){
+        redTextField.text = String(roundByTwo(slider: redColorSlider))
+        greenTextField.text = String(roundByTwo(slider: greenColorSlider))
+        blueTextField.text = String(roundByTwo(slider: blueColorSlider))
+        brightnessTextField.text = String(roundByTwo(slider: brightnessSlider))
+    }
     
+    @IBAction func SliderChanged() {
+        changeValueForLables()
+        changeValueForTextFields()
+        changeColor()
+    }
 }
 
+//extension ViewController: UITextFieldDelegate {
+//    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+//        print("Ok")
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//}
