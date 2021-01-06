@@ -34,6 +34,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
+        
+        addDoneButtonTo(redTextField)
+        addDoneButtonTo(greenTextField)
+        addDoneButtonTo(blueTextField)
+        addDoneButtonTo(brightnessTextField)
+
 
     }
     
@@ -94,12 +100,63 @@ class ViewController: UIViewController {
         changeValueForTextFields()
         changeColor()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event) // работает и без этой строки...
+        
+        view.endEditing(true) // Скрывает клавиатуру, вызванную для любого объекта
+    }
+    
 }
 
-//extension ViewController: UITextFieldDelegate {
-//    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-//        print("Ok")
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//}
+extension ViewController: UITextFieldDelegate {
+    // this method doesn't work. And I don't know why.....
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("textFieldDidEndEditing")
+        guard let text = textField.text else {
+            return
+        }
+        guard let textFloat = Float(text) else{
+            return
+        }
+        guard textFloat <= 1, textFloat >= 0 else {
+            return
+        }
+        switch textField.tag {
+        case 0: redColorSlider.value = textFloat
+            print("Case 0 is on air")
+        case 1: greenColorSlider.value = textFloat
+        case 2: blueColorSlider.value = textFloat
+        case 3: brightnessSlider.value = textFloat
+        default:
+            return
+        }
+        changeValueForLables()
+        changeValueForTextFields()
+        changeColor()
+    }
+    
+    private func addDoneButtonTo(_ textField: UITextField) {
+        
+        let keyboardToolbar = UIToolbar()
+        textField.inputAccessoryView = keyboardToolbar
+        keyboardToolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title:"Done",
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(didTapDone))
+        
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil,
+                                            action: nil)
+        
+        
+        
+        keyboardToolbar.items = [flexBarButton, doneButton]
+    }
+    //objective C method
+    @objc private func didTapDone() {
+        view.endEditing(true)
+    }
+}
