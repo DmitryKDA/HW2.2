@@ -39,11 +39,16 @@ class ViewController: UIViewController {
         addDoneButtonTo(greenTextField)
         addDoneButtonTo(blueTextField)
         addDoneButtonTo(brightnessTextField)
-
-
+        
+        
     }
     
     private func setupViewController (){
+        
+        redTextField.delegate = self
+        greenTextField.delegate = self
+        blueTextField.delegate = self
+        brightnessTextField.delegate = self
         view.backgroundColor = .secondarySystemBackground
         colorView.layer.cornerRadius = colorView.frame.height/10
         colorView.backgroundColor = .white
@@ -110,21 +115,33 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITextFieldDelegate {
-    // this method doesn't work. And I don't know why.....
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard blueTextField.isFirstResponder || brightnessTextField.isFirstResponder else {
+            return
+        }
+        self.view.frame.origin.y = -100
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        guard blueTextField.isFirstResponder || brightnessTextField.isFirstResponder else {
+            return true
+        }
+        self.view.frame.origin.y = 0
+        return true
+    }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("textFieldDidEndEditing")
-        guard let text = textField.text else {
-            return
-        }
-        guard let textFloat = Float(text) else{
-            return
-        }
-        guard textFloat <= 1, textFloat >= 0 else {
+
+        guard let text = textField.text,
+              let textFloat = Float(text),
+              textFloat <= 1,
+              textFloat >= 0
+        else {
+            showAlert(title: "Wrong format", message: "enter value in 0 to 1")
             return
         }
         switch textField.tag {
         case 0: redColorSlider.value = textFloat
-            print("Case 0 is on air")
         case 1: greenColorSlider.value = textFloat
         case 2: blueColorSlider.value = textFloat
         case 3: brightnessSlider.value = textFloat
@@ -158,5 +175,12 @@ extension ViewController: UITextFieldDelegate {
     //objective C method
     @objc private func didTapDone() {
         view.endEditing(true)
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
